@@ -30,7 +30,7 @@ public class BrowseGoogle {
 
   @AfterClass(alwaysRun = true)
   public void tearDown() throws Exception {
-    driver.quit();
+    //driver.quit();
     String verificationErrorString = verificationErrors.toString();
     if (!"".equals(verificationErrorString)) {
       fail(verificationErrorString);

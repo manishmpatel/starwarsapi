@@ -42,6 +42,30 @@
         </exclusion>
       </exclusions>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/com.squareup.retrofit2/retrofit -->
+<dependency>
+    <groupId>com.squareup.retrofit</groupId>
+    <artifactId>retrofit</artifactId>
+    <version>1.8.0</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+<dependency>
+    <groupId>com.google.code.gson</groupId>
+    <artifactId>gson</artifactId>
+    <version>2.3.1</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/com.squareup.okhttp/okhttp -->
+<dependency>
+    <groupId>com.squareup.okhttp</groupId>
+    <artifactId>okhttp</artifactId>
+    <version>2.1.0</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/com.squareup.okhttp/okhttp-urlconnection -->
+<dependency>
+    <groupId>com.squareup.okhttp</groupId>
+    <artifactId>okhttp-urlconnection</artifactId>
+    <version>2.1.0</version>
+</dependency>
   </dependencies>
   <build>
     <resources>

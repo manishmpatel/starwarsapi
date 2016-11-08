@@ -1,14 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Tests" verbose="5">
-  <test name="Test1">
-    <classes>
-      <class name="com.optum.guidance.testng.roundtabledemo.SampleTestNgTest"/>
-    </classes>
-  </test>
+<suite name="Tests" verbose="5" parallel="tests" thread-count="2">
+    <test name="Test1">
+        <classes>
+            <class name="com.optum.guidance.testng.roundtabledemo.SampleTestNgTest" />
+        </classes>
+    </test>
     <test name="BrowseGoogle">
-    <classes>
-      <class name="com.optum.guidance.testng.roundtabledemo.BrowseGoogle"/>
-    </classes>
-  </test>    
+        <classes>
+            <class name="com.optum.guidance.testng.roundtabledemo.BrowseGoogle" />
+        </classes>
+    </test>
 </suite>
