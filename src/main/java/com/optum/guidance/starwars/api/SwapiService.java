@@ -1,4 +1,4 @@
-package com.optum.guidance.testng.roundtabledemo;
+package com.optum.guidance.starwars.api;
 
 import com.swapi.models.Film;
 import com.swapi.models.SWModelList;
