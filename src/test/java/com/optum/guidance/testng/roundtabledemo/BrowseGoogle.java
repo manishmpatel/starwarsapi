@@ -1,9 +1,13 @@
 package com.optum.guidance.testng.roundtabledemo;
 
 import java.util.regex.Pattern;
+import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import org.testng.annotations.*;
 import static org.testng.Assert.*;
+
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -26,6 +30,17 @@ public class BrowseGoogle {
     driver.get(baseUrl + "/");
     driver.findElement(By.id("lst-ib")).clear();
     driver.findElement(By.id("lst-ib")).sendKeys("unit testing");
+ // Take screenshot and store as a file format
+    File src= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+    try {
+     // now copy the  screenshot to desired location using copyFile //method
+    FileUtils.copyFile(src, new File("C:/selenium/error.png"));
+    }
+    catch (IOException e)
+    {
+     System.out.println(e.getMessage());
+    
+    }
   }
 
   @AfterClass(alwaysRun = true)

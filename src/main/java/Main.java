@@ -16,7 +16,7 @@ public class Main {
     {
         StarWarsApi.init();
         StarWars api = StarWarsApi.getApi();
-
+     
         api.getAllFilms(1, new Callback<SWModelList<Film>>() {
         	
             public void success(SWModelList<Film> filmSWModelList, Response response) {
@@ -31,7 +31,7 @@ public class Main {
 
             }
         });
-
+System.out.println("hi");
 
     }
 }

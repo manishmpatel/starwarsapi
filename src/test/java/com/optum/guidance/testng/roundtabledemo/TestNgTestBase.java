@@ -37,6 +37,7 @@ public class TestNgTestBase {
   @BeforeMethod
   public void initWebDriver() {
     driver = WebDriverPool.DEFAULT.getDriver(gridHubUrl, capabilities);
+ 
   }
 
   @AfterSuite(alwaysRun = true)

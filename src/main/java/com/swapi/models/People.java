@@ -1,47 +1,67 @@
 package com.swapi.models;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * Created by Oleur on 21/12/2014.
+ * Created by Manish on 11/16/2016
  * People model represents an individual person or character within the Star Wars universe.
  */
+@JsonIgnoreProperties({"count","next","previous","results"})
 public class People implements Serializable {
-    public String name;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-    @SerializedName("birth_year")
+	
+	
+	
+	/*public String count;
+	public String next;
+	public String previous;
+	public String results;
+	*/
+	public String name;
+
+	
+    @JsonProperty("birth_year")
     public String birthYear;
 
-    @SerializedName("films")
+    @JsonProperty("films")
     public ArrayList<String> filmsUrls;
 
     public String gender;
 
-    @SerializedName("hair_color")
+    @JsonProperty("hair_color")
     public String hairColor;
 
     public String height;
 
-    @SerializedName("homeworld")
+    @JsonProperty("homeworld")
     public String homeWorldUrl;
 
     public String mass;
 
-    @SerializedName("skin_color")
+    @JsonProperty("skin_color")
     public String skinColor;
+    
+    @JsonProperty("eye_color")
+    public String eyeColor;
 
     public String created;
     public String edited;
     public String url;
-    @SerializedName("species")
+    @JsonProperty("species")
     public ArrayList<String> speciesUrls;
 
-    @SerializedName("starships")
+    @JsonProperty("starships")
     public ArrayList<String> starshipsUrls;
 
-    @SerializedName("vehicles")
+    @JsonProperty("vehicles")
     public ArrayList<String> vehiclesUrls;
 }
