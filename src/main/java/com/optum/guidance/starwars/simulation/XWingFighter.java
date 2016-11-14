@@ -13,7 +13,7 @@ public class XWingFighter {
 	}
 
 	public void doDamage(int damage) {
-		defense = -damage;
+		defense -= damage;
 	}
 
 	public boolean isDestroyed() {
