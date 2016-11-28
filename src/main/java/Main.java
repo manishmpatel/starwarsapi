@@ -14,23 +14,8 @@ public class Main {
 
     public static void main(String[] args)
     {
-        StarWarsApi.init();
-        StarWars api = StarWarsApi.getApi();
-     
-        api.getAllFilms(1, new Callback<SWModelList<Film>>() {
-        	
-            public void success(SWModelList<Film> filmSWModelList, Response response) {
-                System.out.println("Count:"+ filmSWModelList.count);
-                for(Film f : filmSWModelList.results) {
-                    System.out.println("Title:" + f.title);
-                }
-            }
-
-
-            public void failure(RetrofitError error) {
-
-            }
-        });
+        
+      
 System.out.println("hi");
 
     }

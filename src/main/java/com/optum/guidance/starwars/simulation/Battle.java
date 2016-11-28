@@ -9,7 +9,11 @@ public class Battle {
 	}
 	
 	public void begin() {
+		// send a squadron of xWingfighters to attack deathstar
 		
+		// fire on the deathstar
+		
+		// deathstar fires back
 	}
 	
 	

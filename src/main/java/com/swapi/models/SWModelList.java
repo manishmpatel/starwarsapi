@@ -8,7 +8,11 @@ import java.util.ArrayList;
  * Film list model
  */
 public class SWModelList<T> implements Serializable {
-    public int count;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	public int count;
     public String next;
     public String previous;
     public ArrayList<T> results;

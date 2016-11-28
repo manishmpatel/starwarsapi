@@ -9,6 +9,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
+
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.*;
 import com.swapi.models.*;
@@ -21,51 +23,65 @@ import com.swapi.models.*;
  */
 public class StarWarsApi {
 
-	
-    private StarWars mSwApi;
-    private static StarWarsApi sInstance;
     private ObjectMapper mapper;
 
     public static void main(String[] args)
     {
         StarWarsApi api = new StarWarsApi();
-            
-        api.getPeople();
-        	
+         
+        SWModelList<?> swl =  api.getSearchResultsForPeople("Luke");
+        System.out.println(swl.results.isEmpty());	
  
     }
     public StarWarsApi() {
      mapper = new ObjectMapper();
     }
 
-    public static void init() {
-        sInstance = new StarWarsApi();
+    
+    @SuppressWarnings("unchecked")
+	public SWModelList<?> getSearchResultsForPeople (String searchContext) {
+    	
+		SWModelList<People> swl = new SWModelList<People>();
+    	String searchURL = APIConstants.BASE_URL + APIConstants.PEOPLE +  "?format=json" + APIConstants.SEARCH + searchContext;
+    	String sResults = null;
+    	
+    	
+		try {
+			sResults = callJSONService(searchURL);
+		} catch (MalformedURLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		
+		try {
+			swl = mapper.readValue(sResults, SWModelList.class);
+		} catch (JsonParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return swl;
     }
-
-    public static StarWars getApi() {
-        return sInstance.mSwApi;
-    }
-
-    public void setApi(StarWars starWarsApi) {
-        sInstance.mSwApi = starWarsApi;
-    }
-    public People getPeople() {
+    
+    public People getPeople(String number) {
     	People p = new People();
     	
     	try {
-    		URLConnection connection = new URL("https://swapi.co/api/people/1/?format=json").openConnection();
-    		connection.setRequestProperty("User-Agent", "swapi-Java-" + APIConstants.APPLICATION_NAME);;
-    		connection.setReadTimeout(1000);
-    		BufferedReader r  = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("UTF-8")));
-
-    		StringBuilder sb = new StringBuilder();
-    		String line;
-    		while ((line = r.readLine()) != null) {
-    		    sb.append(line);
-    		}
-    		System.out.println(sb.toString());
     		
-    	    p = mapper.readValue(sb.toString(), People.class);
+    		String searchURL = APIConstants.BASE_URL + APIConstants.PEOPLE + number + "?format=json";
+    		String sResults = callJSONService(searchURL);
+    		
+    	    p = mapper.readValue(sResults, People.class);
 		    System.out.println(p.hairColor);
     	
     	} catch (JsonParseException e) {
@@ -83,4 +99,19 @@ public class StarWarsApi {
 		}
     	return p;
     }
+    
+	private String callJSONService(String searchURL) throws IOException, MalformedURLException {
+		URLConnection connection = new URL(searchURL).openConnection();
+		connection.setRequestProperty("User-Agent", "swapi-Java-" + APIConstants.APPLICATION_NAME);;
+		connection.setReadTimeout(1000);
+		BufferedReader r  = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("UTF-8")));
+
+		StringBuilder sb = new StringBuilder();
+		String line;
+		while ((line = r.readLine()) != null) {
+		    sb.append(line);
+		}
+		System.out.println(sb.toString());
+		return sb.toString();
+	}
 }
