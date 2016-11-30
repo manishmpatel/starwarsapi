@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="Tests" verbose="5" parallel="tests" thread-count="2">
-   <test name="Test1">
+   <test name="UnitTests">
         <classes>
-            <class name="com.optum.guidance.testng.roundtabledemo.SampleTestNgTest" />
+            <class name="com.optum.guidance.unit.testing.BattleTest" />
         </classes>
     </test>
-    <test name="BrowseGoogle">
+    <test name="FunctionalTests">
         <classes>
-            <class name="com.optum.guidance.testng.roundtabledemo.BrowseGoogle" />
-        </classes>
-    </test>
-    <test name="DeathStar">
-        <classes>
-            <class name="com.optum.guidance.starwars.simulation.DeathStarTest" />
+            <class name="com.optum.guidance.functional.testing.SearchStarWarsPeopleTest" />
         </classes>
     </test>
 </suite>

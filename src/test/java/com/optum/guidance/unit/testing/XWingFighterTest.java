@@ -1,4 +1,4 @@
-package com.optum.guidance.starwars.simulation;
+package com.optum.guidance.unit.testing;
 
 import org.testng.annotations.Test;
 

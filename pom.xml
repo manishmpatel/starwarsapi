@@ -148,7 +148,7 @@
 					<serverPort>1080</serverPort>
 					<proxyPort>1090</proxyPort>
 					<logLevel>DEBUG</logLevel>
-					<initializationClass>org.mockserver.maven.ExampleInitializationClass</initializationClass>
+					<initializationClass>com.optum.guidance.unit.testing.SearchPeopleUnitTest</initializationClass>
 				</configuration>
 				<executions>
 					<execution>

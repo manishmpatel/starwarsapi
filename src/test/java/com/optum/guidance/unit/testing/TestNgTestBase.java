@@ -1,4 +1,4 @@
-package com.optum.guidance.testng.roundtabledemo;
+package com.optum.guidance.unit.testing;
 
 import java.io.IOException;
 
@@ -9,9 +9,9 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
-import ru.stqa.selenium.factory.WebDriverPool;
+import com.optum.guidance.baseline.testing.PropertyLoader;
 
-import com.optum.guidance.testng.roundtabledemo.util.PropertyLoader;
+import ru.stqa.selenium.factory.WebDriverPool;
 
 /**
  * Base class for TestNG-based test classes

@@ -1,4 +1,4 @@
-package com.optum.guidance.testng.roundtabledemo;
+package com.optum.guidance.functional.testing;
 
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;

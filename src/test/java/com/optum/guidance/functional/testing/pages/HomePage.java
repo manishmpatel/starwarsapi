@@ -1,4 +1,4 @@
-package com.optum.guidance.testng.roundtabledemo.pages;
+package com.optum.guidance.functional.testing.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

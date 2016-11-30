@@ -1,6 +1,10 @@
-package com.optum.guidance.starwars.simulation;
+package com.optum.guidance.unit.testing;
 
 import org.testng.annotations.Test;
+
+import com.optum.guidance.starwars.simulation.DeathStar;
+import com.optum.guidance.starwars.simulation.Squadron;
+import com.optum.guidance.starwars.simulation.XWingFighter;
 
 public class DeathStarTest {
 
@@ -53,7 +57,7 @@ public class DeathStarTest {
 	  s.init(20);
 	  DeathStar ds = new DeathStar(10000);
 	  ds.attack(s);
-	  if (ds.getDefense() <= ds.maxDefense)
+	  if (ds.getDefense() <= ds.getMaxDefense())
 		  assert true;
 	  
   }

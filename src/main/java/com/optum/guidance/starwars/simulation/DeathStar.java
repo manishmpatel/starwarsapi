@@ -13,6 +13,18 @@ public class DeathStar {
 
 
 
+	public int getMaxDefense() {
+		return maxDefense;
+	}
+
+
+
+	public void setMaxDefense(int maxDefense) {
+		this.maxDefense = maxDefense;
+	}
+
+
+
 	public int getDefense() {
 		return defense;
 	}

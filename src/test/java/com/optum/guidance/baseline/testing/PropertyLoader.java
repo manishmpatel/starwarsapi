@@ -1,4 +1,4 @@
-package com.optum.guidance.testng.roundtabledemo.util;
+package com.optum.guidance.baseline.testing;
 
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.Platform;

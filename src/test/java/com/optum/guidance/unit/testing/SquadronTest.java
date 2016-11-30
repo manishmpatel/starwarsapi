@@ -1,6 +1,8 @@
-package com.optum.guidance.starwars.simulation;
+package com.optum.guidance.unit.testing;
 
 import org.testng.annotations.Test;
+
+import com.optum.guidance.starwars.simulation.Squadron;
 
 public class SquadronTest {
   @Test(groups = "unittest")
