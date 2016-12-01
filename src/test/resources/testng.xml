@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Tests" verbose="5" parallel="tests" thread-count="2">
+<!-- <suite name="Tests" verbose="5" parallel="tests" thread-count="2"> -->
+<suite name="Tests" verbose="5" >
    <test name="UnitTests">
         <classes>
-            <class name="com.optum.guidance.unit.testing.BattleTest" />
+            <class name="com.optum.guidance.unit.testing.DeathStarTest" />
         </classes>
     </test>
     <test name="FunctionalTests">
         <classes>
             <class name="com.optum.guidance.functional.testing.SearchStarWarsPeopleTest" />
+        </classes>
+    </test>
+    <test name="IntegrationTests">
+        <classes>
+            <class name="com.optum.guidance.integration.testing.SwapiAPITest" />
         </classes>
     </test>
 </suite>

@@ -23,7 +23,7 @@ public class DeathStarTest {
   @Test(groups = "unittest")
   public void test_deathstar_massive_damage() {
 	 DeathStar ds = new DeathStar(100);
-	 ds.doDamage(10000);
+	 ds.doDamage(100);
 	 int i = ds.getDefense();
 	 if (i == 0)
 		 assert true; 

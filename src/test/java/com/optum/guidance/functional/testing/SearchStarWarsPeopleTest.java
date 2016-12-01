@@ -21,11 +21,19 @@ public class SearchStarWarsPeopleTest {
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
 
-  @Test
-  public void testSearchForLuke() throws Exception {
+  @DataProvider(name = "CharacterNames")
+  public Object[][] createData() {
+	  return new Object[][] {
+		  new Object[] { new String("Luke")},
+		  { new String ("Han")},
+	  };
+	  
+  }
+  @Test(groups = "functional", dataProvider="CharacterNames")
+  public void testSearchForLuke( String searchContext) throws Exception {
     driver.get(baseUrl + "/starwarsui/search.html");
     driver.findElement(By.name("searchContext")).clear();
-    driver.findElement(By.name("searchContext")).sendKeys("Luke");
+    driver.findElement(By.name("searchContext")).sendKeys(searchContext);
     driver.findElement(By.cssSelector("input.flexsearch--submit")).click();
     By byXpath = By.xpath("//*[contains(., 'Skywalker')]");
     
