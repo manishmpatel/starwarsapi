@@ -7,6 +7,11 @@ import static org.testng.Assert.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
+import cucumber.api.java.*;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+
 
 public class SearchStarWarsPeopleTest {
   private WebDriver driver;
@@ -15,6 +20,7 @@ public class SearchStarWarsPeopleTest {
   private StringBuffer verificationErrors = new StringBuffer();
 
   @BeforeClass(alwaysRun = true)
+  @Given("^I navigate to the Search page$")
   public void setUp() throws Exception {
     driver = new FirefoxDriver();
     baseUrl = "http://localhost:8080/";
@@ -30,19 +36,27 @@ public class SearchStarWarsPeopleTest {
 	  
   }
   @Test(groups = "functional", dataProvider="CharacterNames")
-  public void testSearchForLuke( String searchContext) throws Exception {
+
+  @When("I type '(.+)' and submit")
+
+    public void testSearchForLuke( String searchContext) throws Exception {
     driver.get(baseUrl + "/starwarsui/search.html");
     driver.findElement(By.name("searchContext")).clear();
     driver.findElement(By.name("searchContext")).sendKeys(searchContext);
     driver.findElement(By.cssSelector("input.flexsearch--submit")).click();
-    By byXpath = By.xpath("//*[contains(., 'Skywalker')]");
+    verifySearchResults();
+    
+  }
+
+  @Then("^the rusults should come back with all of Luke Skywalker infomation$")
+  public void verifySearchResults() {
+	By byXpath = By.xpath("//*[contains(., 'Skywalker')]");
     
     if (this.isElementPresent(byXpath))
     	assert true;
     else
     	assert false;
-    
-  }
+}
 
   @AfterClass(alwaysRun = true)
   public void tearDown() throws Exception {
